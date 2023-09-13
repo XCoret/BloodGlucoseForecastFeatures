@@ -69,7 +69,7 @@ El primer enfoque ha implicado analizar el promedio de los resultados de cada mo
 |Métrica|Modelo1|Modelo2|Modelo3|
 |:-|:-|:-|:-|
 |RMSE|0,41476433|12,6296951|4,39244588|
-|R2|0,99993964|0,93973385|0,99498558|
+|R^2|0,99993964|0,93973385|0,99498558|
 |Tiempo entrenamiento (seg.)|54,2037613|114,941446|102,911749|
 
 La Tabla II muestra como el modelo M1 consigue los mejores resultados, en las tres métricas analizadas, seguido del modelo M3 y finalmente el modelo M2.
@@ -94,15 +94,15 @@ La Tabla III muestra como en el caso C7 se consigue el RMSE medio entre los tres
 También se denota como el caso C8 que utiliza todas las variables resulta un incremento del tiempo de entrenamiento significativo.
 
 ### VI. DISCUSIÓN
-Los resultados obtenidos han sido analizados a partir de los dos enfoques definidos previamente. De este modo se obtiene una visión del impacto del uso de variables adicionales en cada modelo y también en cada caso. En este análisis se ha tenido en cuenta las métricas de RMSE, R2, el tiempo de entrenamiento y los resultados obtenidos al aplicar la rejilla de error de Clarke a las predicciones realizadas.
+Los resultados obtenidos han sido analizados a partir de los dos enfoques definidos previamente. De este modo se obtiene una visión del impacto del uso de variables adicionales en cada modelo y también en cada caso. En este análisis se ha tenido en cuenta las métricas de RMSE, R^2, el tiempo de entrenamiento y los resultados obtenidos al aplicar la rejilla de error de Clarke a las predicciones realizadas.
 
 #### Evaluación de cada modelo
-El modelo más simple (M1) en el caso C1 (usando únicamente la variable del nivel de glucosa) logra los mejores resultados, demostrando su eficacia con un RMSE de 0.035, un valor de R2 de 0.9999997 y un tiempo de entrenamiento de aproximadamente 47 segundos.
-Sin embargo, esta aparente superioridad de un enfoque más simple se contradice cuando se observa el rendimiento del modelo M2 en el mismo caso, que presenta un rendimiento inferior en términos de RMSE y R2, lo que resalta la importancia del modelo de aprendizaje profundo utilizado. Además, se nota que el rendimiento más destacado del modelo M1 se repite en el caso C6, donde se han incorporado variables adicionales, como “Trend” y “Diagnostic”, relacionadas con el estado general de la glucosa en sangre y su evolución. En este caso, el modelo M1 logra un RMSE de 0,12424 y un R2 de 0,99999629 , con un tiempo de entrenamiento apenas 2 segundos mayor que en el mejor caso.  
+El modelo más simple (M1) en el caso C1 (usando únicamente la variable del nivel de glucosa) logra los mejores resultados, demostrando su eficacia con un RMSE de 0.035, un valor de R^2 de 0.9999997 y un tiempo de entrenamiento de aproximadamente 47 segundos.
+Sin embargo, esta aparente superioridad de un enfoque más simple se contradice cuando se observa el rendimiento del modelo M2 en el mismo caso, que presenta un rendimiento inferior en términos de RMSE y R^2, lo que resalta la importancia del modelo de aprendizaje profundo utilizado. Además, se nota que el rendimiento más destacado del modelo M1 se repite en el caso C6, donde se han incorporado variables adicionales, como “Trend” y “Diagnostic”, relacionadas con el estado general de la glucosa en sangre y su evolución. En este caso, el modelo M1 logra un RMSE de 0,12424 y un R^2 de 0,99999629 , con un tiempo de entrenamiento apenas 2 segundos mayor que en el mejor caso.  
 
 La tendencia general en el análisis de rendimiento revela que el modelo M1 muestra la mayor exactitud y eficiencia en el tiempo de entrenamiento en la mayoría de los casos, seguido por M3, mientras que M2 presenta resultados menos satisfactorios. Además, es importante destacar que la inclusión de más variables no necesariamente mejora la precisión de los modelos. En algunos casos, como en el caso C3, resulta más efectivo utilizar un número limitado de variables, como “Measurement” y “Weekday”, en lugar de utilizar todas las variables disponibles, como se hizo en el caso C8. Esto resalta la importancia de seleccionar cuidadosamente las variables más relevantes para mejorar la capacidad predictiva.
 
-En términos de métricas de exactitud y variabilidad, se observa que los modelos M1 y M3 obtienen bajos valores de RMSE y altos valores de R2, denotando su capacidad para ajustarse y explicar la variabilidad de los datos. El modelo M2, aunque explica mucha variabilidad, presenta un RMSE más alto y un R2 ligeramente inferior. En cuanto a la eficiencia temporal, M1 destaca por su rapidez en los entrenamientos debido en gran parte a la simplicidad de su arquitectura, mientras que M2 y M3 requieren más tiempo, especialmente en casos con más variables.
+En términos de métricas de exactitud y variabilidad, se observa que los modelos M1 y M3 obtienen bajos valores de RMSE y altos valores de R^2, denotando su capacidad para ajustarse y explicar la variabilidad de los datos. El modelo M2, aunque explica mucha variabilidad, presenta un RMSE más alto y un R^2 ligeramente inferior. En cuanto a la eficiencia temporal, M1 destaca por su rapidez en los entrenamientos debido en gran parte a la simplicidad de su arquitectura, mientras que M2 y M3 requieren más tiempo, especialmente en casos con más variables.
 
 
 #### Evaluación de cada caso
@@ -111,14 +111,14 @@ El caso C7 muestra un menor RMSE promedio, lo que sugiere que las variables "Mea
 ![Fig. 1.  Comparación de la media de RMSE por caso.](Output/Metrics/MediaRMSE.png)
 > Fig. 1.  Comparación de la media de RMSE por caso.
 
-Además, se observa que el uso de un mayor número de variables no siempre mejora la precisión de los modelos. Por ejemplo, el caso 7 obtuvo mejores resultados con solo dos variables, mientras que el caso 8 tuvo un rendimiento inferior al utilizar las 8 variables disponibles. 
+Además, se en la figura 1 observa que el uso de un mayor número de variables no siempre mejora la precisión de los modelos. Por ejemplo, el caso 7 obtuvo mejores resultados con solo dos variables, mientras que el caso 8 tuvo un rendimiento inferior al utilizar las 8 variables disponibles. 
 
+En todos los casos, representados en la figura 2, los modelos han logrado una explicación casi perfecta de la variabilidad de los datos, con una media del coeficiente de determinación (R^2) superior a 0,99. Notablemente, incluso en el caso 1 donde no se emplearon variables adicionales, los casos restantes mostraron un R^2 más alto. Esto sugiere que la inclusión de variables adicionales posiblemente mejoró la precisión de los modelos entrenados.
 
-En todos los casos, los modelos han logrado una explicación casi perfecta de la variabilidad de los datos, con una media del coeficiente de determinación (R2) superior a 0,99. Notablemente, incluso en el caso 1 donde no se emplearon variables adicionales, los casos restantes mostraron un R2 más alto. Esto sugiere que la inclusión de variables adicionales posiblemente mejoró la precisión de los modelos entrenados.
 ![Fig. 2.  Comparación de la media del coeficiente de determinación por caso.](Output/Metrics/MediaR2.png)
 > Fig. 2.  Comparación de la media del coeficiente de determinación por caso.
 
-El modelo M1 completó todos sus entrenamientos en menos de un minuto, excepto en el caso 8, donde el tiempo de entrenamiento se extendió a un minuto y medio. Este último caso utilizó más de tres variables, lo que sugiere que un aumento en el número de variables puede ralentizar el proceso de entrenamiento de los modelos debido a la necesidad de procesar una mayor cantidad de datos. Este fenómeno está relacionado con el problema de la maldición de la dimensionalidad mencionado anteriormente.
+En la figura 3 se puede observar como el modelo M1 completó todos sus entrenamientos en menos de un minuto, excepto en el caso 8, donde el tiempo de entrenamiento se extendió a un minuto y medio. Este último caso utilizó más de tres variables, lo que sugiere que un aumento en el número de variables puede ralentizar el proceso de entrenamiento de los modelos debido a la necesidad de procesar una mayor cantidad de datos. Este fenómeno está relacionado con el problema de la maldición de la dimensionalidad mencionado anteriormente.
 
 Es importante destacar que el incremento en el tiempo de entrenamiento puede ser impracticable, especialmente si se utilizan herramientas menos potentes. Aunque en este estudio se empleó una GPU para el entrenamiento de los modelos, el uso de una CPU podría prolongar significativamente el tiempo de entrenamiento.
 
@@ -131,12 +131,13 @@ Finalmente, el análisis de la rejilla de error de Clarke respalda la confianza 
 > Fig. 4.  Media de predicciones por región en la rejilla de error de Clarke
 
 
-### VII. CONCLUSIONES
+### VII. CONCLUSIONES Y LÍNEAS DE TRABAJO FUTURO
+#### Conclusiones
 La revisión de las métricas obtenidas en este estudio resalta varias conclusiones clave. En primer lugar, se evidencia un efecto positivo derivado de la incorporación de variables adicionales en la predicción y definición de los modelos, ya que esto se traduce en mejoras notables en las métricas de rendimiento. Este impacto positivo se manifiesta claramente en las medias de los resultados de los tres modelos en cada caso analizado.
 
 Es fundamental tener en cuenta que el uso de un número creciente de variables no viene sin sus desafíos. Uno de los principales inconvenientes observados es el aumento en los tiempos de entrenamiento de los modelos. A medida que se agregan más variables, la complejidad computacional aumenta, lo que puede traducirse en una prolongación del tiempo necesario para el ajuste de los algoritmos. Esto es especialmente relevante en situaciones donde se dispone de recursos computacionales limitados o cuando se trabaja con conjuntos de datos masivos.
 
-Sin embargo, esta aparente superioridad de un enfoque más simple se contradice cuando se observa el rendimiento del modelo M2 en el mismo caso, que presenta un rendimiento inferior en términos de RMSE y R2, lo que resalta la importancia del modelo de aprendizaje profundo utilizado. Además, se nota que el rendimiento más destacado del modelo M1 se repite en el caso C6, donde se han incorporado variables adicionales, como “Trend” y “Diagnostic”, relacionadas con el estado general de la glucosa en sangre y su evolución.
+Sin embargo, esta aparente superioridad de un enfoque más simple se contradice cuando se observa el rendimiento del modelo M2 en el mismo caso, que presenta un rendimiento inferior en términos de RMSE y R^2, lo que resalta la importancia del modelo de aprendizaje profundo utilizado. Además, se nota que el rendimiento más destacado del modelo M1 se repite en el caso C6, donde se han incorporado variables adicionales, como “Trend” y “Diagnostic”, relacionadas con el estado general de la glucosa en sangre y su evolución.
 
 Es importante encontrar un equilibrio entre la inclusión de variables adicionales y la eficiencia del proceso de entrenamiento. Dependiendo del contexto y de las herramientas informáticas disponibles, puede ser necesario tomar decisiones sobre qué variables incorporar y en qué cantidad, con el objetivo de obtener modelos lo suficientemente precisos sin sacrificar la viabilidad de su implementación práctica.
 
@@ -144,11 +145,11 @@ La tendencia general en el análisis de rendimiento revela que el modelo M1 mues
 
 En conclusión, el estudio ha demostrado que el uso de variables adicionales es una estrategia prometedora para mejorar la calidad de los modelos de predicción en el campo estudiado. No obstante, es fundamental considerar los aspectos prácticos y computacionales para garantizar que la inclusión de más variables se traduzca en beneficios reales y no en problemas operativos. Una planificación adecuada y una comprensión profunda de las implicaciones asociadas son clave para obtener resultados exitosos en la aplicación de estos modelos en situaciones reales.
 
-En términos de métricas de exactitud y variabilidad, se observa que los modelos M1 y M3 obtienen bajos valores de RMSE y altos valores de R2, denotando su capacidad para ajustarse y explicar la variabilidad de los datos. El modelo M2, aunque explica mucha variabilidad, presenta un RMSE más alto y un R2 ligeramente inferior. En cuanto a la eficiencia temporal, M1 destaca por su rapidez en los entrenamientos debido en gran parte a la simplicidad de su arquitectura, mientras que M2 y M3 requieren más tiempo, especialmente en casos con más variables.
+En términos de métricas de exactitud y variabilidad, se observa que los modelos M1 y M3 obtienen bajos valores de RMSE y altos valores de R^2, denotando su capacidad para ajustarse y explicar la variabilidad de los datos. El modelo M2, aunque explica mucha variabilidad, presenta un RMSE más alto y un R^2 ligeramente inferior. En cuanto a la eficiencia temporal, M1 destaca por su rapidez en los entrenamientos debido en gran parte a la simplicidad de su arquitectura, mientras que M2 y M3 requieren más tiempo, especialmente en casos con más variables.
 
 Finalmente, el análisis de la rejilla de error de Clarke respalda la confianza en la capacidad de los modelos para realizar predicciones de niveles de glucosa seguros que no conllevan a diagnósticos erróneos, ya que la mayoría de las predicciones caen en las regiones A y B de la rejilla, indicando un buen ajuste y exactitud en las predicciones. Estos hallazgos subrayan la importancia de la elección adecuada de variables y modelos en la construcción de modelos de predicción para problemas de este tipo.
 
-### VIII. LÍNEAS DE TRABAJO FUTURO
+#### Líneas de trabajo futuro
 Debido al tiempo limitado para llevar a cabo este estudio, algunas líneas de investigación no se pudieron explorar completamente, lo que abre oportunidades para futuras investigaciones.
 
 Una de las líneas de investigación prometedoras para el futuro es realizar un análisis exhaustivo de las combinaciones de variables que podrían tener un mayor impacto en la precisión y eficacia de los modelos de predicción de los niveles de glucosa en sangre. Este análisis permitiría determinar qué variables son realmente relevantes y cuáles podrían ser innecesarias para la tarea de predicción.
@@ -156,3 +157,53 @@ Una de las líneas de investigación prometedoras para el futuro es realizar un 
 Otra línea interesante para futuras investigaciones sería proponer un caso de uso para completar un conjunto de datos con valores faltantes entre registros, utilizando las predicciones obtenidas. En el presente trabajo, se excluyeron los registros cuya distancia temporal era mayor a 15 minutos respecto al siguiente registro. Sin embargo, se podría explorar la posibilidad de predecir el valor de glucosa en sangre para reducir el número de valores faltantes en el conjunto de datos.
 
 Ambas líneas de trabajo futuro tienen el potencial de mejorar la comprensión y la precisión de los modelos de predicción de glucosa en sangre, lo que contribuiría significativamente a la investigación en esta área y a la aplicación de estos modelos en situaciones prácticas 
+
+### VIII. REFERENCIAS
+
+[1]	Global report on diabetes. 2016. Accessed: Apr. 16, 2023. [Online].Available: https://www.who.int/publications/i/item/9789241565257.
+
+[2]	J. Chaki, S. Thillai Ganesh, S. K. Cidham, and S. Ananda Theertan, “Machine learning and artificial intelligence based Diabetes Mellitus detection and self-management: A systematic review,” Journal of King Saud University - Computer and Information Sciences, vol. 34, no. 6, pp. 3204–3225, Jun. 2022, doi: 10.1016/j.jksuci.2020.06.013.
+
+[3]	B. E. Boser, I. M. Guyon, and V. N. Vapnik, “A training algorithm for optimal margin classifiers,” in Proceedings of the fifth annual workshop on Computational learning theory, New York, NY, USA: ACM, Jul. 1992, pp. 144–152. doi: 10.1145/130385.130401.
+
+[4]	G. James, D. Witten, T. Hastie, and R. Tibshirani, “An Introduction to Statistical Learning with Applications in R Second Edition,” 2021. Accessed: May 14, 2023. [Online]. Available: https://hastie.su.domains/ISLR^2/ISLRv2_website.pdf
+
+[5]	T. Hastie, R. Tibshirani, and J. Friedman, “Springer Series in Statistics The Elements of Statistical Learning Data Mining, Inference, and Prediction.”
+
+[6]	R. Bunescu, N. Struble, C. Marling, J. Shubrook, and F. Schwartz, “Blood Glucose Level Prediction Using Physiological Models and Support Vector Regression,” in 2013 12th International Conference on Machine Learning and Applications, IEEE, Dec. 2013, pp. 135–140. doi: 10.1109/ICMLA.2013.30.
+
+[7]	M. P. Reymann, E. Dorschky, B. H. Groh, C. Martindale, P. Blank, and B. M. Eskofier, Blood Glucose Level Prediction based on Support Vector Regression using Mobile Platforms *. 2016. doi: 10.0/Linux-x86_64.
+
+[8]	Y. LeCun et al., “Backpropagation Applied to Handwritten Zip Code Recognition,” Neural Comput, vol. 1, no. 4, pp. 541–551, Dec. 1989, doi: 10.1162/neco.1989.1.4.541.
+
+[9]	K. Li, J. Daniels, C. Liu, P. Herrero, and P. Georgiou, “Convolutional Recurrent Neural Networks for Glucose Prediction,” IEEE J Biomed Health Inform, vol. 24, no. 2, pp. 603–613, Feb. 2020, doi: 10.1109/JBHI.2019.2908488.
+
+[10]	K. Li, C. Liu, T. Zhu, P. Herrero, and P. Georgiou, “GluNet: A Deep Learning Framework for Accurate Glucose Forecasting.,” IEEE J Biomed Health Inform, vol. 24, no. 2, pp. 414–423, Feb. 2020, doi: 10.1109/JBHI.2019.2931842.
+
+[11]	J. L. Elman, “Finding Structure in Time,” Cogn Sci, vol. 14, no. 2, pp. 179–211, Mar. 1990, doi: 10.1207/s15516709cog1402_1.
+
+[12]	Fei-Fei Li, Justin Johnson, and Serena Yeung, “Lecture 10: Recurrent Neural Networks.” 2017. Accessed: Jun. 19, 2023. [Online]. Available: http://cs231n.stanford.edu/slides/2017/cs231n_2017_lecture10.pdf
+
+[13]	S. Hochreiter and J. Schmidhuber, “Long Short-Term Memory,” Neural Comput, vol. 9, no. 8, pp. 1735–1780, Nov. 1997, doi: 10.1162/neco.1997.9.8.1735.
+
+[14]	Christopher Olah, “Understanding LSTM Networks,” Aug. 27, 2015. http://colah.github.io/posts/2015-08-Understanding-LSTMs/ (accessed Jun. 19, 2023).
+
+[15]	S. Mirshekarian, R. Bunescu, C. Marling, and F. Schwartz, “Using LSTMs to learn physiological models of blood glucose behavior,” in 2017 39th Annual International Conference of the IEEE Engineering in Medicine and Biology Society (EMBC), IEEE, Jul. 2017, pp. 2887–2891. doi: 10.1109/EMBC.2017.8037460.
+
+[16]	Qingnan Sun, Marko V. Jankovic, Lia Bally, and Stavroula G. Mougiakakou, “Predicting Blood Glucose with an LSTM and Bi-LSTM Based Deep Neural Network,” 2018. doi: 10.48550/arXiv.1809.03817.
+
+[17]	International Workshop on Knowledge Discovery in Healthcare Data, “Blood Glucose Level Prediction Challenge,” 2020. https://sites.google.com/view/kdh-2020/bglp-challenge?authuser=0 (accessed Jul. 28, 2023).
+
+[18]	Knowledge Discovery in Healthcare Data, “The BGLP Challenge: Results, Papers, and Source Code ,” 2020, Accessed: Jul. 28, 2023. [Online]. Available: http://smarthealth.cs.ohio.edu/bglp/bglp-results.html
+
+[19]	H. Rubin-Falcone, I. Fox, and J. Wiens, “Deep Residual Time-Series Forecasting: Application to Blood Glucose Prediction,” 2020. [Online]. Available: https://gitlab.eecs.umich.edu/mld3/deep-residual-time-series-forecasting
+
+[20]	H. Hameed and S. Kleinberg, “Investigating potentials and pitfalls of knowledge distillation across datasets for blood glucose forecasting,” 2020. Accessed: Aug. 01, 2023. [Online]. Available: https://github.com/iupui-soic/bglp2G.
+
+[21]	T. Zhu, X. Yao, K. Li, P. Herrero, and P. Georgiou, “Blood Glucose Prediction for Type 1 Diabetes Using Generative Adversarial Networks,” 2020.
+
+[22]	W. L. Clarke, D. Cox, L. A. Gonder-Frederick, W. Carter, and S. L. Pohl, “Evaluating Clinical Accuracy of Systems for Self-Monitoring of Blood Glucose,” Diabetes Care, vol. 10, no. 5, pp. 622–628, Sep. 1987, doi: 10.2337/diacare.10.5.622
+
+[23]	NVIDIA, “NVIDIA GeForce GTX 1650,” 2019. https://www.nvidia.com/en-us/geforce/graphics-cards/gtx-1650/ (accessed Jul. 26, 2023).
+
+[24]	X. Coret, “Repositorio BloodGlucoseForecast,” 2023. https://github.com/XCoret/BloodGlucoseForecastFeatures (accessed Jul. 22, 2023).
